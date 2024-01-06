@@ -1,0 +1,43 @@
+# build a rock paper scissors game
+import random
+MOVE_SET = ['Rock', 'Paper', 'Scissors']
+
+def main():
+    print("Rock Paper Scissors Simulation!")
+    cpu_1_move = cpu_1()
+    cpu_2_move  = cpu_2()
+    print(f"CPU 1 plays the move: {cpu_1_move}")
+    print(f"CPU 2 plays the move: {cpu_2_move}")
+    win_validation(cpu_1_move, cpu_2_move)
+
+def cpu_1():
+    move = random.choice(MOVE_SET)
+    return move
+    
+def cpu_2():
+    move = random.choice(MOVE_SET)
+    return move
+
+def win_validation(cpu1, cpu2):
+    move_1 = cpu1
+    move_2 = cpu2
+
+    if move_1 == move_2:
+        print("It's a tie!")
+    elif move_1 == "Paper":
+        if move_2 == "Rock":
+            print("CPU 1 WINS!")
+        elif move_2 == "Scissors":
+            print("CPU 2 WINS!")
+    elif move_1 == "Rock":
+        if move_2 == "Paper":
+            print("CPU 2 WINS!")
+        elif move_2 == "Scissors":
+            print("CPU 1 WINS!")
+    elif move_1 == "Scissors":
+        if move_2 == "Paper":
+            print("CPU 1 WINS!")
+        elif move_2 == "Rock":
+            print("CPU 2 WINS!")
+        
+main()
